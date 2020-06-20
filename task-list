@@ -1,26 +1,24 @@
-# Task-list
-список задач
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Список задач</title>
 	<script type="text/javascript">
-		function addItem(){
-			var newElement = document.createElement("div");
-			newElement.innerHTML = document.getElementById("task").value;
-			document.getElementById("list").appendChild(newElement);
+		function addItem() {
+			var newItem = document.createElement("div");
+			newItem.innerHTML = document.getElementById("box").value;
+			document.getElementById("list").appendChild(newItem);
+			newItem.onclick = removeItem;
+		}
+		function removeItem(){
+			document.getElementById("list").removeChild(this);
 		}
 	</script>
 </head>
 <body>
-	<h1>Список задач</h1>
-	<br>
-	<br>
-	<input id="task" type="text" name="task"  placeholder="введи задачу"><br>
-	<input type="button" value ="Добавить" style="background-color: lightgray;" onclick="addItem();"><br>
-	<br>
-	<div id="list">
-		
-	</div>
+	<p>Организация специальной выставки</p><br>
+	<input type="text" id="box" placeholder ="Введите задачу"><br>
+	<input type="button" value="Добавить элемент" onclick="addItem();">
+
+	<div id="list"></div>
 </body>
 </html>
